@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 //@DisplayNameGeneration(DisplayNameGenerator.IndicativeSentences.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class DemUtilsTest {
 
     DemoUtils demoUtils;
@@ -21,6 +22,7 @@ class DemUtilsTest {
 
     @Test
     @DisplayName("Equals and Not Equals")
+    @Order(1)
     void testEqualsAndNotEquals() {
 
 //        System.out.println("Running test: testEqualsAndNotEquals");
@@ -31,6 +33,7 @@ class DemUtilsTest {
 
     @DisplayName("Null and Not Null")
     @Test
+    @Order(0)
         void testNullAndNotNull()   {
 
 //        System.out.println("Running test: testNullAndNotNull");
@@ -44,6 +47,7 @@ class DemUtilsTest {
 
     @DisplayName("True and False")
     @Test
+    @Order(30)
         void testTrueFalse()    {
             int gradeOne = 10;
             int gradeTwo = 5;
@@ -78,6 +82,7 @@ class DemUtilsTest {
 
     @DisplayName("Lines Match")
     @Test
+    @Order(50)
     void testLinesMatch()   {
         List<String> theList = List.of("luv", "2", "code");
         assertLinesMatch(theList, demoUtils.getAcademyInList(), "Lines should match");
