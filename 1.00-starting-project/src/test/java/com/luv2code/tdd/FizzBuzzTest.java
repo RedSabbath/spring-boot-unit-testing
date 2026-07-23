@@ -1,6 +1,8 @@
 package com.luv2code.tdd;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -55,6 +57,16 @@ class FizzBuzzTest {
         String expected = "1";
 
         assertEquals(expected, FizzBuzz.compute(1), "Should return 1");
+    }
+
+    @Order(5)
+    @DisplayName("Testing with Small Data File")
+    @ParameterizedTest(name="value={0}, expected={1}")
+    @CsvFileSource(resources="/small-test-data.csv")
+    void testSmallDataFile(int value, String expected)  {
+
+        assertEquals(expected, FizzBuzz.compute(value));
+
     }
 
 
